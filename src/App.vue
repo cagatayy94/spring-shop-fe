@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PreHeader />
+    <PreHeader v-if="preHeaderActive" />
     <Navigation />
     <router-view/>
     <Subscribe />
@@ -15,6 +15,11 @@ import Subscribe from "./components/Subscribe";
 import Footer from "./components/Footer";
 import SubFooter from "./components/SubFooter";
 export default {
-  components: {SubFooter, Footer, Subscribe, Navigation, PreHeader}
+  components: {SubFooter, Footer, Subscribe, Navigation, PreHeader},
+  data(){
+    return {
+      preHeaderActive:false
+    }
+  }
 }
 </script>

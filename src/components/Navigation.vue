@@ -6,20 +6,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li :class="{'active' : currentRoute === 'Home'}" class="nav-item">
+            <router-link to="/" tag="a" class="nav-link">Home </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="products.html">Products</a>
+          <li :class="{'active' : currentRoute === 'Products'}" class="nav-item">
+            <router-link to="/products" tag="a" class="nav-link">Products</router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
+          <li :class="{'active' : currentRoute === 'AboutUs'}" class="nav-item">
+            <router-link to="/about-us" tag="a" class="nav-link">About Us</router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
+          <li :class="{'active' : currentRoute === 'Contact'}" class="nav-item">
+            <router-link to="/contact" tag="a" class="nav-link">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -29,7 +28,12 @@
 
 <script>
 export default {
-  name: "Navigation"
+  name: "Navigation",
+  computed: {
+    currentRoute() {
+      return this.$route.name;
+    }
+  }
 }
 </script>
 
