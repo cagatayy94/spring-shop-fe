@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
 
 export default createStore({
   state: {
@@ -15,7 +16,6 @@ export default createStore({
     initApp(context){
       axios.get("http://localhost:8031/products")
           .then(response => {
-            console.log(response.data[0])
             context.commit("initProducts", response.data)
           })
           .catch()
@@ -28,4 +28,7 @@ export default createStore({
       return state.products
     },
   },
+  plugins: [
+    createPersistedState()
+  ]
 })

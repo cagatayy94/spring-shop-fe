@@ -22,7 +22,7 @@
     </div>
   </div>
 <!--  -->
-  <div  class="featured container no-gutter">
+  <div v-if="products" class="featured container no-gutter">
     <div class="row posts">
       <div v-for="product in products" v-bind:key="product.id" class="item new col-md-4">
         <a href="single-product.html">
