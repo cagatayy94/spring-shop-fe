@@ -20,6 +20,9 @@ export default {
     return {
       preHeaderActive:false
     }
+  },
+  created() {
+    this.$store.dispatch("initApp")
   }
 }
 </script>
